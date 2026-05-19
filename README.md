@@ -116,5 +116,10 @@ def anonymize_person(first, middle, last):
 -   Compare salaries based off roles and positions
 -   Analyze cost distribution by department
 - These insights will benefit human resources and government agencies when building efficency and in decision-making.
+### Power Bi Model
+[nyc_payroll_dashboard.pdf](https://github.com/user-attachments/files/28031588/nyc_payroll_dashboard.pdf)
+
+### Insights
+
 
 
