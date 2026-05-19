@@ -117,7 +117,7 @@ def anonymize_person(first, middle, last):
 -   Analyze cost distribution by department
 - These insights will benefit human resources and government agencies when building efficency and in decision-making.
 ### Power Bi Model
-[nyc_payroll_dashboard.pdf](https://github.com/user-attachments/files/28031588/nyc_payroll_dashboard.pdf)
+<img width="1024" height="585" alt="1779226394079-7b294632-7d76-4fcc-800c-af491cba7888_1" src="https://github.com/user-attachments/assets/c5499b22-5f93-414a-badd-80a0c80b7877" />
 
 ### Insights
 
