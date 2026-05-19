@@ -84,7 +84,7 @@ Structure:
 - This will improved safe analyzations when reporting records.
 
 ## j. Data Warehouse
-- A star schema will be used to implement the fact and dimensional tables
+- A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
 ### Fact Table:
 - Payroll_Fact_Table
 ### Dimensional Tables:
