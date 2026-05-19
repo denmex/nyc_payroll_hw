@@ -61,3 +61,45 @@ Structure:
 (used google sheets)
 <img width="1366" height="920" alt="HW 1" src="https://github.com/user-attachments/assets/1dd036fa-725d-484e-894e-0aba41d9842b" />
 (used lucid charts)
+
+## h. ETL Pipeline (Python)
+- The ETL Pipeline was constrcuted using Python and Pandas to be able to process the NYC Citeywide Payroll dataset.
+- Extract:
+-   the dataset was loaded from a CSV files that holds NYC Payroll for the 2025 fisical year.
+- Transform:
+-   Removed null and duplicate values
+-   Converted salarty and overtime feilds into numeric values
+-   Standarized column names
+-   Annonimize personal information (first name, last name, middle name)
+-   Used anonymization by using a UUID-based hashing function to protect employee self identity.
+- Load:
+-   Clean data was loaded into a data warehouse
+-   Data was organized into fact and dimensional tables to analyze further
+
+## i. Data Privacy
+- To comply with privacy requirements, all employee personal information will be removed.
+- A UUID function will be used to anonymize employees.
+-   the employee will be connected through an employee id
+-   no personal information will be stored in the final database
+- This will improved safe analyzations when reporting records.
+
+## j. Data Warehouse
+- A star schema will be used to implement the fact and dimensional tables
+### Fact Table:
+- Payroll_Fact_Table
+### Dimensional Tables:
+- Employee_Info
+- Agency_Info
+- Job_info
+- Location_Info
+- Time_Info
+
+## k. Analysis
+- The following analysis is found during this process:
+-   Total payroll spending filtered by department
+-   Identify departments with the highest overtime usage
+-   Compare salaries based off roles and positions
+-   Analyze cost distribution by department
+- These insights will benefit human resources and government agencies when building efficency and in decision-making.
+
+
