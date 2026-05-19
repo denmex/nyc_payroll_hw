@@ -59,7 +59,7 @@ Structure:
 ## g. Dimensional Modeling 
  - Dictionary : https://docs.google.com/spreadsheets/d/1YQh6Sb5KLJKRqJkGTsdkpQ0zi_cxyKetI2tjYlCZK7I/edit?usp=sharing
 (used google sheets)
-<img width="1366" height="920" alt="HW 1" src="https://github.com/user-attachments/assets/1dd036fa-725d-484e-894e-0aba41d9842b" />
+<img width="1366" height="920" alt="HW 1" src="https://github.com/user-attachments/assets/77beec3e-bff0-4f5e-b510-7ca11f098c8b" />
 (used lucid charts)
 
 ## h. ETL Pipeline (Python)
