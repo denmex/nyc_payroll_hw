@@ -82,17 +82,32 @@ Structure:
 -   the employee will be connected through an employee id
 -   no personal information will be stored in the final database
 - This will improved safe analyzations when reporting records.
+### Employee Anonymization Function (code)
+import uuid
+
+def anonymize_person(first, middle, last):
+    full_name = (
+        str(first if pd.notnull(first) else "").strip().lower() +
+        str(middle if pd.notnull(middle) else "").strip().lower() +
+        str(last if pd.notnull(last) else "").strip().lower()
+    )
+    return str(uuid.uuid5(uuid.NAMESPACE_DNS, full_name))
+(created using colab)
 
 ## j. Data Warehouse
 - A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
 ### Fact Table:
-- Payroll_Fact_Table
+- fact_payroll (salary, overtime, total pay metrics)
 ### Dimensional Tables:
-- Employee_Info
-- Agency_Info
-- Job_info
-- Location_Info
-- Time_Info
+- dim_employee (anonymized employees, location)
+- dim_department (agency, payroll number)
+- dim_job (job titles, pay basis)
+- dim_time (fiscal year)
+### SQL Schema 
+- The warehouse tables were designed using SQL
+-   see /sql/create_tables.sql
+### Data Model (DbSchema)
+<img width="716" height="287" alt="nyc_payroll_hw_db" src="https://github.com/user-attachments/assets/4b8c9a81-c6b8-474b-b47a-28e2ac753e9e" />
 
 ## k. Analysis
 - The following analysis is found during this process:
