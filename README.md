@@ -64,15 +64,15 @@ Structure:
 
 ## h. ETL Pipeline (Python)
 - The ETL Pipeline was constrcuted using Python and Pandas to be able to process the NYC Citeywide Payroll dataset.
-- Extract:
+### Extract:
 -   the dataset was loaded from a CSV files that holds NYC Payroll for the 2025 fisical year.
-- Transform:
+### Transform:
 -   Removed null and duplicate values
 -   Converted salarty and overtime feilds into numeric values
 -   Standarized column names
 -   Annonimize personal information (first name, last name, middle name)
 -   Used anonymization by using a UUID-based hashing function to protect employee self identity.
-- Load:
+### Load:
 -   Clean data was loaded into a data warehouse
 -   Data was organized into fact and dimensional tables to analyze further
 
