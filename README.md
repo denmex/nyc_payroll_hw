@@ -113,6 +113,7 @@ def anonymize_person(first, middle, last):
 -   Storage Type: S3 Bucket
 -   File 'clean_nyc_payroll_hw2.csv'
 - This makes sures there is a structured, cloud-base storage for the processed data.
+<img width="1920" height="799" alt="aws sw" src="https://github.com/user-attachments/assets/f1c51221-ec81-49be-8d8e-1bffc6f03c78" />
 
 ## k. Data Warehouse Design: Payroll Schema
 - A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
