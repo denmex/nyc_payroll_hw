@@ -58,8 +58,7 @@ Structure:
  
 ## g. Dimensional Modeling 
  - Dictionary :
-![Citywide_Payroll_Data_Dictionary](https://github.com/user-attachments/assets/2fedbccf-2d2a-40ad-87cb-4783b3103058)
-
+<img width="478" height="308" alt="Citywide_Payroll_Data_Dictionary" src="https://github.com/user-attachments/assets/bede84b2-4f32-434b-942f-dd872c38e374" />
 https://docs.google.com/spreadsheets/d/1YQh6Sb5KLJKRqJkGTsdkpQ0zi_cxyKetI2tjYlCZK7I/edit?usp=sharing
 (used google sheets)
 <img width="1366" height="920" alt="HW 1 (1)" src="https://github.com/user-attachments/assets/81c4045c-8609-4814-9bda-2f7f7b49bdfc" />
@@ -102,12 +101,12 @@ def anonymize_person(first, middle, last):
 ## j. Data Warehouse
 - A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
 #### Fact Table :
-- 'fact_payroll' (salary, overtime, total pay metrics)
+'fact_payroll' (salary, overtime, total pay metrics)
 #### Dimensional Tables :
-- 'dim_employee' (anonymized employees, location)
-- 'dim_department' (agency, payroll number)
-- 'dim_job' (job titles, pay basis)
-- dim_time (fiscal year)
+'dim_employee' (anonymized employees, location)
+'dim_department' (agency, payroll number)
+'dim_job' (job titles, pay basis)
+'dim_time' (fiscal year)
 ### SQL Schema 
 - The warehouse tables were designed using SQL
 -   see /sql/create_tables.sql
