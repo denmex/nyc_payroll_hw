@@ -98,15 +98,21 @@ def anonymize_person(first, middle, last):
 ```
 (created using colab)
 
-## j. Data Warehouse
+## j. Data Warehouse Architecture: Payroll Schema
 - A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
-#### Fact Table :
-'fact_payroll' (salary, overtime, total pay metrics)
-#### Dimensional Tables :
-'dim_employee' (anonymized employees, location)
-'dim_department' (agency, payroll number)
-'dim_job' (job titles, pay basis)
-'dim_time' (fiscal year)
+
+### `fact_payroll` (Fact Table)
+* **Metrics:** Base Salary, Overtime Pay, Total Compensation
+* **Keys:** Employee Key, Department Key, Job Key, Time Key
+### `dim_employee` (Employee Dimension)
+* **Attributes:** Anonymized Employee ID, Work Location, Branch
+### `dim_department` (Department Dimension)
+* **Attributes:** Agency Name, Payroll Number, Department Code
+### `dim_job` (Job Dimension)
+* **Attributes:** Job Title, Pay Basis (Hourly/Salary)
+### `dim_time` (Time Dimension)
+* **Attributes:** Fiscal Year, Quarter, Month
+
 ### SQL Schema 
 - The warehouse tables were designed using SQL
 -   see /sql/create_tables.sql
