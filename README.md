@@ -1,14 +1,27 @@
 # nyc_payroll_hw
 # ReadMe
+## NYC Payroll and BI Analytics Project 
+- This project builds a full data pipeline using NYC Citywide Payroll data. It includes ETL processing, dimensional modeling, cloud stirage, and an interactive Power BI dashboard for payroll and overtime analysis.
+
+## Tools Used 
+- Python (Pandas)
+- Google Colab
+- SQL (Star Schema Design)
+- DbSchema (Data Modeling)
+- AWS S3 (Cloud Storage)
+- Power BI
+
 ## a. Business Requirements
-- The goal is to help the human resource department to analyze department spending to track costs, point out outlier spending, and evaluate employee compensation based on their base salary and overtime hours. 
-- The goal is to help human resources identify the differences in salary based on positions and structure within the payroll data.
-- The goal is to help government agencies analyze which department faced the highest overtime costs and identify any barriers preventing efficient work and to be able to improve from them.
+The goal is to help the human resource department to analyze:
+- Department spending to track costs, point out outlier spending, and evaluate employee compensation based on their base salary and overtime hours. 
+- Identify the differences in salary based on positions and structure within the payroll data.
+- Investigate which department faced the highest overtime costs and identify any barriers preventing efficient work and to be able to improve from them.
 
 ## b. Functional Requirements
-- The system will calculate the total payroll by filtering by department and be able to determine which department has the highest total payroll. 
-- The system will be able to analyze the difference in salary and how the costs are being distributed across roles and departments.
-- The system will be able to calculate which department has the most overtime usage filtering by department and total the number of overtime hours to be able to compare. 
+The system will be able to:
+- Calculate the total payroll by filtering by department and be able to determine which department has the highest total payroll. 
+- Analyze the difference in salary and how the costs are being distributed across roles and departments.
+- Find which department has the most overtime usage filtering by department and total the number of overtime hours to be able to compare. 
 
 ## c. Data Requirements 
 
@@ -26,7 +39,7 @@ Structure:
 - Data Source: Citywide Payroll Data (Fiscal Year)
 - Ingestion: CSV File
 - Processing: Clean and transform data based on salaries, overtime, departments, and roles.
-- Storage: Fact and Dimension tables
+- Storage: Fact, Dimension tables, and AWS S3
 - Analysis: Find trends and reports for users that are only granted permission (Human Resource Department, Government Agencies)
   - Can not edit any raw or output data, data is based on accumulated and processed data from datasets.
   - Reports should not include employee personal information such as first and last names and middle initial.
@@ -72,18 +85,14 @@ https://docs.google.com/spreadsheets/d/1YQh6Sb5KLJKRqJkGTsdkpQ0zi_cxyKetI2tjYlCZ
 -   Removed null and duplicate values
 -   Converted salarty and overtime feilds into numeric values
 -   Standarized column names
--   Annonimize personal information (first name, last name, middle name)
 -   Used anonymization by using a UUID-based hashing function to protect employee self identity.
 ### Load:
--   Clean data was loaded into a data warehouse
--   Data was organized into fact and dimensional tables to analyze further
-
+-   Clean dataset stored as 'clean_nyc_payroll_hw2.csv'
+-   Used for Power BI and analytics
+  
 ## i. Data Privacy
 - To comply with privacy requirements, all employee personal information will be removed.
 - A UUID function will be used to anonymize employees.
--   the employee will be connected through an employee id
--   no personal information will be stored in the final database
-- This will improved safe analyzations when reporting records.
 ### Employee Anonymization Function (code)
 ```python
 import uuid
@@ -98,7 +107,14 @@ def anonymize_person(first, middle, last):
 ```
 (created using colab)
 
-## j. Data Warehouse Architecture: Payroll Schema
+## j. Cloud Storage (AWS S3)
+- The cleaned dataset was uploaded to AWS S3 for storage and ETL output
+-   Platform: Amazon S3
+-   Storage Type: S3 Bucket
+-   File 'clean_nyc_payroll_hw2.csv'
+- This makes sures there is a structured, cloud-base storage for the processed data.
+
+## k. Data Warehouse Design: Payroll Schema
 - A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
 
 ### `fact_payroll` (Fact Table)
@@ -113,11 +129,12 @@ def anonymize_person(first, middle, last):
 ### `dim_time` (Time Dimension)
 * **Attributes:** Fiscal Year, Quarter, Month
 
+### Data Model (DbSchema)
+<img width="716" height="287" alt="nyc_payroll_hw_db" src="https://github.com/user-attachments/assets/4b8c9a81-c6b8-474b-b47a-28e2ac753e9e" />
+
 ### SQL Schema 
 - The warehouse tables were designed using SQL
 -   see /sql/create_tables.sql
-### Data Model (DbSchema)
-<img width="716" height="287" alt="nyc_payroll_hw_db" src="https://github.com/user-attachments/assets/4b8c9a81-c6b8-474b-b47a-28e2ac753e9e" />
 
 ## k. Analysis
 - The following analysis is found during this process:
@@ -126,12 +143,21 @@ def anonymize_person(first, middle, last):
 -   Compare salaries based off roles and positions
 -   Analyze cost distribution by department
 - These insights will benefit human resources and government agencies when building efficency and in decision-making.
+
 ### Power Bi Model
-<img width="1024" height="585" alt="1779226394079-7b294632-7d76-4fcc-800c-af491cba7888_1" src="https://github.com/user-attachments/assets/c5499b22-5f93-414a-badd-80a0c80b7877" />
+<img width="593" height="332" alt="nyc_payroll_powerbi" src="https://github.com/user-attachments/assets/aa9af1fb-05ba-4cb6-a42f-7f042c53418d" />
 
 Link: https://app.powerbi.com/groups/me/reports/aa63c398-cbee-432a-a628-c570f766aa7b?ctid=6f60f0b3-5f06-4e09-9715-989dba8cc7d8&pbi_source=linkShare
 
 ### Insights
+- Total base salary expenditure for 2025 reached $2.67B, distributed across approximately 47,000 employees.
+Total overtime compensation amounted to $269.88M, representing a significant portion of overall labor costs.
+- Department of Education (Pedagogical Division) recorded the highest base salary total at $1.02B. Employs approximately 9,000 staff members and reported $0 in overtime pay, indicating a fully salary-based compensation structure.
+- The Police Department recorded the highest overtime expenditure at $100.62M. Holds the second-highest base salary total at $422.34M and employs approximately 5,000 staff members, reflecting high compensation intensity per employee.
 
+### Key Takeaways
+Compensation is heavily concentrated in a few large departments.
+Education payroll is driven entirely by base salaries, with no overtime dependency.
+Police compensation includes both high base pay and significant overtime costs, indicating operational demand beyond standard hours.
 
 
