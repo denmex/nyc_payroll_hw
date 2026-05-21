@@ -119,6 +119,8 @@ def anonymize_person(first, middle, last):
 ### Power Bi Model
 <img width="1024" height="585" alt="1779226394079-7b294632-7d76-4fcc-800c-af491cba7888_1" src="https://github.com/user-attachments/assets/c5499b22-5f93-414a-badd-80a0c80b7877" />
 
+Link: https://app.powerbi.com/groups/me/reports/aa63c398-cbee-432a-a628-c570f766aa7b?ctid=6f60f0b3-5f06-4e09-9715-989dba8cc7d8&pbi_source=linkShare
+
 ### Insights
 
 
