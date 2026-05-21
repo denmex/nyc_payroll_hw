@@ -57,7 +57,10 @@ Structure:
 - Description: The system starts with the NYC Citywide Payroll dataset and is extracted as a CSV file, ingested, and then goes into the ETL process. During this ETL process the data is cleaned, transformed, and loaded to be able to better analyze trends. It then goes into the data warehouse where both fact and dimensional tables are used to be able to be consistent with the large dataset. Finally, users can make decisions based on its trends and outputs that will help with budgeting, work plans, and policies. 
  
 ## g. Dimensional Modeling 
- - Dictionary : https://docs.google.com/spreadsheets/d/1YQh6Sb5KLJKRqJkGTsdkpQ0zi_cxyKetI2tjYlCZK7I/edit?usp=sharing
+ - Dictionary :
+![Citywide_Payroll_Data_Dictionary](https://github.com/user-attachments/assets/2fedbccf-2d2a-40ad-87cb-4783b3103058)
+
+https://docs.google.com/spreadsheets/d/1YQh6Sb5KLJKRqJkGTsdkpQ0zi_cxyKetI2tjYlCZK7I/edit?usp=sharing
 (used google sheets)
 <img width="1366" height="920" alt="HW 1 (1)" src="https://github.com/user-attachments/assets/81c4045c-8609-4814-9bda-2f7f7b49bdfc" />
 (used lucid charts)
@@ -83,6 +86,7 @@ Structure:
 -   no personal information will be stored in the final database
 - This will improved safe analyzations when reporting records.
 ### Employee Anonymization Function (code)
+```python
 import uuid
 
 def anonymize_person(first, middle, last):
@@ -92,16 +96,17 @@ def anonymize_person(first, middle, last):
         str(last if pd.notnull(last) else "").strip().lower()
     )
     return str(uuid.uuid5(uuid.NAMESPACE_DNS, full_name))
+```
 (created using colab)
 
 ## j. Data Warehouse
 - A star schema will be used to implement the fact and dimensional tables. This way it will improve performance and simplify the analyzation processes. The design will be more readable, scalable, and ideal for payroll analysis and decision making. 
-### Fact Table:
-- fact_payroll (salary, overtime, total pay metrics)
-### Dimensional Tables:
-- dim_employee (anonymized employees, location)
-- dim_department (agency, payroll number)
-- dim_job (job titles, pay basis)
+#### Fact Table :
+- 'fact_payroll' (salary, overtime, total pay metrics)
+#### Dimensional Tables :
+- 'dim_employee' (anonymized employees, location)
+- 'dim_department' (agency, payroll number)
+- 'dim_job' (job titles, pay basis)
 - dim_time (fiscal year)
 ### SQL Schema 
 - The warehouse tables were designed using SQL
